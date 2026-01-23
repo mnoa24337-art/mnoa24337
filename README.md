@@ -75,7 +75,7 @@
     <option value="3">3</option>
   </select><br><br>
 
-  大根甘酢漬け<br>
+  大根酢漬け<br>
   <select id="RadishPickled">
     <option value="0">0</option>
     <option value="1">1</option>
