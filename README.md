@@ -101,7 +101,7 @@
 
   <p>合計金額：<span id="out">0</span> 円</p>
 
-  <input type="submit" value="送信">
+<input type="submit" value="送信">
 </form>
 
 
