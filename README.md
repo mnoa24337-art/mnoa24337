@@ -105,6 +105,6 @@
   <input type="submit" value="送信">
 </form>
 
- <script src="script.js"></script>
+
 </body>
 </html>
