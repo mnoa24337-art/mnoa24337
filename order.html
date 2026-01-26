@@ -129,54 +129,53 @@
     </div>
       </form> 
 <script>
-const ids = [
-  "StrawberryJam",
-  "FigJam",
-  "SweetpotatoJam",
-  "marmalade",
-  "miso",
-  "kimchi",
-  "kakuteki",
-  "bamboo",
-  "RadishPickled",
-  "RadishSoySauce",
-  "RadishSpicySoySauce"
-];
+fetch("https://docs.google.com/spreadsheets/d/1hM_bDOlLHJwiegbrrwd1x_yyYktFfWRtSbCMhqM0DPo/gviz/tq?tqx=out:csv")
 
-const selects = ids
-  .map(id => document.getElementById(id))
-  .filter(el => el !== null);
+  .then(res => res.text())
+  .then(text => {
+    const rows = text.split("\n");
+    const table = document.getElementById("table");
 
-const result = document.getElementById("out");
-
-function calc() {
-  const prices = {
-    StrawberryJam: 450,
-    FigJam: 450,
-    SweetpotatoJam: 450,
-    marmalade: 450,
-    miso: 500,
-    kimchi: 500,
-    kakuteki: 500,
-    bamboo: 1000,
-    RadishPickled: 350,
-    RadishSoySauce: 350,
-    RadishSpicySoySauce: 350
-  };
-
-  let total = 0;
-
-  selects.forEach(sel => {
-    const price = prices[sel.id] || 0;
-    const qty = Number(sel.value) || 0;
-    total += price * qty;
+    rows.forEach(row => {
+      const tr = document.createElement("tr");
+      row.split(",").forEach(cell => {
+        const td = document.createElement("td");
+        td.textContent = cell;
+        tr.appendChild(td);
+      });
+      table.appendChild(tr);
+    });
   });
-
-  result.textContent = total;
+       
+       const selecta = document.getElementById("StrawberryJam");
+const selectb = document.getElementById("FigJam");
+const selectc = document.getElementById("SweetpotatoJam");
+const selectd = document.getElementById("marmalade");
+const selecte = document.getElementById("miso");
+const selectf = document.getElementById("kimchi");
+const selectg = document.getElementById("kakuteki");
+const selecth = document.getElementById("bamboo");
+const selecti = document.getElementById("RadishPickled");
+const selectj = document.getElementById("RadishSoySauce");
+const selectk = document.getElementById("RadishSpicySoySauce");
+const result = document.getElementById("out");
+function calc() {
+  const a = Number(selecta.value) || 0;
+  const b = Number(selectb.value) || 0;
+  const c = Number(selectc.value) || 0;
+  const d = Number(selectd.value) || 0;
+  const e = Number(selecte.value) || 0;
+  const f = Number(selectf.value) || 0;
+  const g = Number(selectg.value) || 0;  
+  const h = Number(selecth.value) || 0;
+  const i = Number(selecti.value) || 0;
+  const j = Number(selectj.value) || 0;
+  const k = Number(selectk.value) || 0;
+  result.textContent = ((a + b + c + d) * 450 + (e + f + g) * 500+(i + j + k) * 350
+    + h * 1000);
 }
-
-selects.forEach(sel =>
-  sel.addEventListener("change", calc)
+[selecta, selectb, selectc, selectd, selecte, selectf, selectg, selecth, selecti, selectj, selectk].forEach((sel) =>
+  sel.addEventListener("change", calc),
 );
 </script>
      
