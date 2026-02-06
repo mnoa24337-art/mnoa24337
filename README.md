@@ -120,7 +120,7 @@
     </div>
       </form> 
     
-<script src="scripy.js"></script>
+ <script src="scripy.js"></script>
 
-    </body>
-    </html>
+ </body>
+</html>
