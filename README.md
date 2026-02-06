@@ -20,7 +20,7 @@
           <option value="3">3</option> 
         </select> 
         個
-        <br> <br>大根の醤油漬（３５０円
+        <br> <br>大根の醤油漬（３５０円）<br>
         <select name="RadishSoySauce" id="RadishSoySauce"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
