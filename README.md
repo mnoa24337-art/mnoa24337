@@ -117,7 +117,6 @@
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
         <br></div>
         <br><input type="submit" value="送信"> 
-    </div>
       </form> 
     
  <script src="scripy.js"></script>
