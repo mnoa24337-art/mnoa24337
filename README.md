@@ -1,9 +1,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>商品購入フォーム</title>
+  <title>"商品購入フォーム"</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="styleseet" href="style.css">
+  <link rel="stylesheet" href="style.css">
  
 </head>
 <body>
