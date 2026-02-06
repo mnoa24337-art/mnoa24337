@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet"href="style.css">
   </head>
+  
   <body>  
     <table id="table"></table>
     <div class=all>
@@ -20,7 +21,6 @@
         </select> 
         個
   
-        
         <br> <br>大根の醤油漬（３５０円
         <select name="RadishSoySauce" id="RadishSoySauce"> 
           <option value="0" selected>0</option>
