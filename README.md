@@ -120,7 +120,6 @@
     </div>
         <br><input type="submit" value="送信"> 
       </form> 
-</div>
  <script src="scripy.js"></script>
       
  </body>
