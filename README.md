@@ -103,9 +103,9 @@
         個
         <br><p id="out"></p> 円
         <br><br>お名前（カナ　フルネーム）<br> 
-        <input type="text"　id="name"><br><br> 
+        <input type="text"　id="name" required><br><br> 
         メールアドレス<br> 
-        <input type="email" id="email"><br><br> 　
+        <input type="email" id="email" required><br><br> 　
         </div>
     <div class=policy>
 　プライバシーポリシー 
