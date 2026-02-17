@@ -9,7 +9,7 @@
   
   <body>  
     <table id="table"></table>
-    <div class=all>
+    <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1> 
      <div class= "nearlyall">
       <form> 購入数
