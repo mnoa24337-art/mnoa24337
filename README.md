@@ -107,7 +107,7 @@
         メールアドレス<br> 
         <input type="email" id="email" required><br><br>
          </div>
-    <div class=policy>
+    <div class="policy">
 　プライバシーポリシー 
 　当サービスでは、商品のお渡しおよび関連する連絡を行うため、
   <br>お客様の氏名（フルネーム）およびメールアドレスを取得します。 
@@ -118,6 +118,7 @@
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
     </div>
         <br><input type="submit" value="送信"> 
+      </div>
       </form>  
  
   <script src="scripy.js"></script>
