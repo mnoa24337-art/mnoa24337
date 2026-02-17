@@ -4,9 +4,6 @@
     <title>商品購入フォーム</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    
-  </head>
-  
   <body>  
     <table id="table"></table>
   <div class="all">
