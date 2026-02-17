@@ -116,11 +116,10 @@
    </div>
   </div>
         <br><input type="submit" value="送信"> 
-      </div>
-      </form>  
+      </form> 
+     </div>
  
   <script src="scripy.js"></script>
       
  </body>
- 
 </html>
