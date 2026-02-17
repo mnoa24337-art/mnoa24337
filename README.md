@@ -105,7 +105,8 @@
         <br><br>お名前（カナ　フルネーム）<br> 
         <input type="text"　id="name" required><br><br> 
         メールアドレス<br> 
-        <input type="email" id="email" required><br><br> 　 
+        <input type="email" id="email" required><br><br>
+         </div>
     <div class=policy>
 　プライバシーポリシー 
 　当サービスでは、商品のお渡しおよび関連する連絡を行うため、
@@ -116,8 +117,7 @@
 　<br><br>お客様の個人情報は、法令に基づく場合を除き、事前の同意なく第三者へ提供することはありません。 
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
     </div>
-        </div>
-         </div>
+      </div>
         <br><input type="submit" value="送信"> 
       </form> 
  <script src="scripy.js"></script>
