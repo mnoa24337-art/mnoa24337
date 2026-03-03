@@ -34,33 +34,36 @@ const selects = ids
 
 const result = document.getElementById("out");
 
-function calc() {
-  const prices = {
-    StrawberryJam: 450,
-    FigJam: 450,
-    SweetpotatoJam: 450,
-    marmalade: 450,
-    miso: 500,
-    kimchi: 500,
-    kakuteki: 500,
-    bamboo: 1000,
-    RadishPickled: 350,
-    RadishSoySauce: 350,
-    RadishSpicySoySauce: 350
-  };
+const prices = {
+  StrawberryJam: 450,
+  FigJam: 450,
+  SweetpotatoJam: 450,
+  marmalade: 450,
+  miso: 500,
+  kimchi: 500,
+  kakuteki: 500,
+  bamboo: 1000,
+  RadishPickled: 350,
+  RadishSoySauce: 350,
+  RadishSpicySoySauce: 350
+};
 
+function calc() {
   let total = 0;
-　sel.addEventListener("select", calculateTotal);
 
   selects.forEach(sel => {
     const price = prices[sel.id] || 0;
-    const qty = Number(value) || 0;
+    const qty = Number(sel.value) || 0;
     total += price * qty;
   });
 
   result.textContent = total;
 }
 
-selects.forEach(sel =>
-  sel.addEventListener("change", calc)
-);
+// 🔥 変更されたら即計算
+selects.forEach(sel => {
+  sel.addEventListener("change", calc);
+});
+
+// ページ読み込み時にも一回計算
+calc();
