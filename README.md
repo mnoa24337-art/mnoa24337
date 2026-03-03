@@ -106,7 +106,10 @@
        pattern="^[ァ-ヶー]+$" 
        title="カタカナで入力してください"
        required>
+           
 <br><br> 
+<button onclick="clearData()">保存データをリセット</button>
+<br><br>
         メールアドレス<br> 
         <input type="email" id="email" required><br><br>
     <div class="policy">
@@ -193,6 +196,30 @@ selects.forEach(sel => {
 
 
 calc();
+    selects.forEach(sel => {
+  sel.addEventListener("change", () => {
+    calc();
+    saveProgress();
+  });
+});
+function loadProgress() {
+  const saved = localStorage.getItem("orderData");
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+
+  selects.forEach(sel => {
+    if (data[sel.id] !== undefined) {
+      sel.value = data[sel.id];
+    }
+  });
+
+  calc(); // 合計も更新
+}
+ function clearData() {
+      localStorage.removeItem("orderData");
+      alert("保存データを削除しました");
+    }
     
 </script>
 
