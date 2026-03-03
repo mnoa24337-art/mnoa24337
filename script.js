@@ -60,10 +60,10 @@ function calc() {
   result.textContent = total;
 }
 
-// 🔥 変更されたら即計算
+
 selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
-// ページ読み込み時にも一回計算
+
 calc();
