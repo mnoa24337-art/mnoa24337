@@ -9,7 +9,7 @@
     <table id="table"></table>
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form> 
+      <form　id="myform"> 
          <div class="nearlyall">
         購入数
         <br> <br>大根の酢漬（３５０円）<br>
@@ -196,9 +196,9 @@ selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
-    const form = document.getElementById("myForm");
+   const form = document.getElementById("myForm");
 
-// 🔥 保存処理
+// 🔥 保存
 function saveForm() {
   const data = {};
 
@@ -206,12 +206,7 @@ function saveForm() {
     if (!el.name) return;
 
     if (el.type === "checkbox") {
-      if (!data[el.name]) {
-        data[el.name] = [];
-      }
-      if (el.checked) {
-        data[el.name].push(el.value);
-      }
+      data[el.name] = el.checked;
     } else {
       data[el.name] = el.value;
     }
@@ -220,7 +215,7 @@ function saveForm() {
   localStorage.setItem("formData", JSON.stringify(data));
 }
 
-// 🔥 復元処理
+// 🔥 復元
 function loadForm() {
   const saved = localStorage.getItem("formData");
   if (!saved) return;
@@ -228,33 +223,24 @@ function loadForm() {
   const data = JSON.parse(saved);
 
   Object.keys(data).forEach(key => {
-    const elements = form.elements[key];
+    const field = form.elements[key];
+    if (!field) return;
 
-    if (!elements) return;
-
-    if (elements.length && elements[0].type === "checkbox") {
-      Array.from(elements).forEach(el => {
-        el.checked = data[key].includes(el.value);
-      });
+    if (field.type === "checkbox") {
+      field.checked = data[key];
     } else {
-      elements.value = data[key];
+      field.value = data[key];
     }
   });
 }
 
-// 🔥 削除処理
-function clearData() {
-  localStorage.removeItem("formData");
-  form.reset();
-  alert("保存データを削除しました");
-}
-
-// 🔥 入力が変わったら自動保存
+// 入力が変わったら自動保存
 form.addEventListener("input", saveForm);
 form.addEventListener("change", saveForm);
 
-// ページ読み込み時に復元
-loadForm();
+// 🔥 ページ読み込み時に復元
+window.addEventListener("DOMContentLoaded", loadForm);
+
 
 </script>
 
