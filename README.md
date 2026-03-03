@@ -197,16 +197,17 @@ selects.forEach(sel => {
 });
 
 
-calc();
-    selects.forEach(sel => {
-  sel.addEventListener("change", () => {
-    calc();
-    saveProgress();
-  });
-});
+function saveProgress() {
+  const data = {};
 
-  function loadProgress() {
-  const saved = localStorage.getItem("clearData");
+  selects.forEach(sel => {
+    data[sel.id] = sel.value;
+  });
+
+  localStorage.setItem("orderData", JSON.stringify(data));
+}
+function loadProgress() {
+  const saved = localStorage.getItem("orderData");
   if (!saved) return;
 
   const data = JSON.parse(saved);
@@ -219,11 +220,7 @@ calc();
 
   calc(); // 合計も更新
 }
- function clearData() {
-      localStorage.removeItem("orderData");
-      alert("保存データを削除しました");
-    }
-    
+
 </script>
 
  </body>
