@@ -200,11 +200,21 @@ selects.forEach(sel => {
 
 // 🔥 保存処理
 function saveForm() {
-  const formData = new FormData(form);
   const data = {};
 
-  formData.forEach((value, key) => {
-    data[key] = value;
+  Array.from(form.elements).forEach(el => {
+    if (!el.name) return;
+
+    if (el.type === "checkbox") {
+      if (!data[el.name]) {
+        data[el.name] = [];
+      }
+      if (el.checked) {
+        data[el.name].push(el.value);
+      }
+    } else {
+      data[el.name] = el.value;
+    }
   });
 
   localStorage.setItem("formData", JSON.stringify(data));
@@ -218,9 +228,16 @@ function loadForm() {
   const data = JSON.parse(saved);
 
   Object.keys(data).forEach(key => {
-    const field = form.elements[key];
-    if (field) {
-      field.value = data[key];
+    const elements = form.elements[key];
+
+    if (!elements) return;
+
+    if (elements.length && elements[0].type === "checkbox") {
+      Array.from(elements).forEach(el => {
+        el.checked = data[key].includes(el.value);
+      });
+    } else {
+      elements.value = data[key];
     }
   });
 }
@@ -238,6 +255,7 @@ form.addEventListener("change", saveForm);
 
 // ページ読み込み時に復元
 loadForm();
+
 </script>
 
  </body>
