@@ -193,6 +193,8 @@ selects.forEach(sel => {
 
 
 calc();
+    
 </script>
+
  </body>
 </html>
