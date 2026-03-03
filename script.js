@@ -60,7 +60,6 @@ function calc() {
   result.textContent = total;
 }
 
-
 selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
