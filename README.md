@@ -196,31 +196,48 @@ selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
+    const form = document.getElementById("myForm");
 
-function saveProgress() {
+// 🔥 保存処理
+function saveForm() {
+  const formData = new FormData(form);
   const data = {};
 
-  selects.forEach(sel => {
-    data[sel.id] = sel.value;
+  formData.forEach((value, key) => {
+    data[key] = value;
   });
 
-  localStorage.setItem("orderData", JSON.stringify(data));
+  localStorage.setItem("formData", JSON.stringify(data));
 }
-function loadProgress() {
-  const saved = localStorage.getItem("orderData");
+
+// 🔥 復元処理
+function loadForm() {
+  const saved = localStorage.getItem("formData");
   if (!saved) return;
 
   const data = JSON.parse(saved);
 
-  selects.forEach(sel => {
-    if (data[sel.id] !== undefined) {
-      sel.value = data[sel.id];
+  Object.keys(data).forEach(key => {
+    const field = form.elements[key];
+    if (field) {
+      field.value = data[key];
     }
   });
-
-  calc(); // 合計も更新
 }
 
+// 🔥 削除処理
+function clearData() {
+  localStorage.removeItem("formData");
+  form.reset();
+  alert("保存データを削除しました");
+}
+
+// 🔥 入力が変わったら自動保存
+form.addEventListener("input", saveForm);
+form.addEventListener("change", saveForm);
+
+// ページ読み込み時に復元
+loadForm();
 </script>
 
  </body>
