@@ -50,10 +50,10 @@ function calc() {
   };
 
   let total = 0;
-
+　sel.addEventListener("change", calculateTotal)
   selects.forEach(sel => {
     const price = prices[sel.id] || 0;
-    const qty = Number(sel.value) || 0;
+    const qty = Number(value) || 0;
     total += price * qty;
   });
 
