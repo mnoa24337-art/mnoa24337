@@ -107,11 +107,12 @@
        title="カタカナで入力してください"
        required>
            
-<br><br> 
-<button onclick="clearData()">保存データをリセット</button>
 <br><br>
         メールアドレス<br> 
         <input type="email" id="email" required><br><br>
+       
+<button onclick="clearData()">保存データをリセット</button>
+ <br><br> 
     <div class="policy">
 　プライバシーポリシー 
 　当サービスでは、商品のお渡しおよび関連する連絡を行うため、
