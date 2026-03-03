@@ -129,7 +129,8 @@
      </div>
  
   <script>
-   function exportExcel() {
+   
+    function exportExcel() {
       const data = [
         ["名前", "メール"],
         [
@@ -203,8 +204,9 @@ calc();
     saveProgress();
   });
 });
-function loadProgress() {
-  const saved = localStorage.getItem("orderData");
+
+  function loadProgress() {
+  const saved = localStorage.getItem("clearData");
   if (!saved) return;
 
   const data = JSON.parse(saved);
