@@ -9,7 +9,7 @@
     <table id="table"></table>
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form　id="myform"　> 
+      <form　id="myForm"　> 
          <div class="nearlyall">
         購入数
         <br> <br>大根の酢漬（３５０円）<br>
