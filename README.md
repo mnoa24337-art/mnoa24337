@@ -9,7 +9,7 @@
     <table id="table"></table>
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form　id="myform"> 
+      <form　id="myform"　> 
          <div class="nearlyall">
         購入数
         <br> <br>大根の酢漬（３５０円）<br>
@@ -125,7 +125,7 @@
    </div>
   </div>
         <br><input type="submit" value="送信"> 
-      </form> 
+  </form> 
      </div>
  
   <script>
@@ -196,7 +196,7 @@ selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
-   const form = document.getElementById("myForm");
+const form = document.getElementById("myForm");
 
 // 🔥 保存
 function saveForm() {
