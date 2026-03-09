@@ -286,11 +286,16 @@ function clearData(){
       el.value = "0";
     }
 
+    if (el.type === "text" || el.type === "email") {
+      el.value = "";
+    }
+
   });
 
   calc();
 
 }
+
 
 
 // 🔹 入力変更
