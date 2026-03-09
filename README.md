@@ -9,7 +9,7 @@
     <table id="table"></table>
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
-      <form　id="myForm"　> 
+      <form id="myForm">
          <div class="nearlyall">
         購入数
         <br> <br>大根の酢漬（３５０円）<br>
@@ -123,7 +123,8 @@
 　<br><br>お客様の個人情報は、法令に基づく場合を除き、事前の同意なく第三者へ提供することはありません。 
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
    </div>
-  </div>
+  </div><br><input type="checkbox" name="agree">
+    同意する
         <br><input type="submit" value="送信"> 
   </form> 
      </div>
@@ -198,7 +199,6 @@ selects.forEach(sel => {
 
 const form = document.getElementById("myForm");
 
-// 🔥 保存
 function saveForm() {
   const data = {};
 
@@ -214,8 +214,6 @@ function saveForm() {
 
   localStorage.setItem("formData", JSON.stringify(data));
 }
-
-// 🔥 復元
 function loadForm() {
   const saved = localStorage.getItem("formData");
   if (!saved) return;
@@ -233,12 +231,8 @@ function loadForm() {
     }
   });
 }
-
-// 入力が変わったら自動保存
 form.addEventListener("input", saveForm);
 form.addEventListener("change", saveForm);
-
-// 🔥 ページ読み込み時に復元
 window.addEventListener("DOMContentLoaded", loadForm);
 
 
