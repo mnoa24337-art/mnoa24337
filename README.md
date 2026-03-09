@@ -100,7 +100,7 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><p id="out"></p> 円
+合計：<span id="out">0</span> 円
         <br><br>お名前（カナ　フルネーム）<br> 
         <input type="text" 
        pattern="^[ァ-ヶー]+$" 
@@ -111,7 +111,9 @@
         メールアドレス<br> 
         <input type="email" id="email" required><br><br>
        
-<button onclick="clearData()">保存データをリセット</button>
+<br><br>
+
+<button onclick="clearData()">保存データ削除</button>
  <br><br> 
     <div class="policy">
 　プライバシーポリシー 
@@ -197,43 +199,107 @@ selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
-const form = document.getElementById("myForm");
+// 🔹 保存対象全部取得
+const fields = document.querySelectorAll("input, select");
 
-function saveForm() {
-  const data = {};
+const result = document.getElementById("out");
 
-  Array.from(form.elements).forEach(el => {
-    if (!el.name) return;
+// 🔹 合計計算
+function calc(){
 
-    if (el.type === "checkbox") {
-      data[el.name] = el.checked;
-    } else {
-      data[el.name] = el.value;
-    }
-  });
+let total = 0;
 
-  localStorage.setItem("formData", JSON.stringify(data));
+Object.keys(prices).forEach(id=>{
+
+const el = document.getElementById(id);
+if(!el) return;
+
+const qty = Number(el.value) || 0;
+total += prices[id] * qty;
+
+});
+
+result.textContent = total.toLocaleString();
+
+saveProgress();
+
 }
-function loadForm() {
-  const saved = localStorage.getItem("formData");
-  if (!saved) return;
 
-  const data = JSON.parse(saved);
+// 🔹 保存
+function saveProgress(){
 
-  Object.keys(data).forEach(key => {
-    const field = form.elements[key];
-    if (!field) return;
+const data = {};
 
-    if (field.type === "checkbox") {
-      field.checked = data[key];
-    } else {
-      field.value = data[key];
-    }
-  });
+fields.forEach(el=>{
+
+if(!el.id) return;
+
+if(el.type === "checkbox"){
+data[el.id] = el.checked;
+}else{
+data[el.id] = el.value;
 }
-form.addEventListener("input" , saveForm);
-form.addEventListener("change" , saveForm);
-window.addEventListener("DOMContentLoaded" , loadForm);
+
+});
+
+localStorage.setItem("orderData",JSON.stringify(data));
+
+}
+
+// 🔹 復元
+function loadProgress(){
+
+const saved = localStorage.getItem("orderData");
+if(!saved) return;
+
+const data = JSON.parse(saved);
+
+fields.forEach(el=>{
+
+if(!el.id) return;
+
+if(data[el.id] === undefined) return;
+
+if(el.type === "checkbox"){
+el.checked = data[el.id];
+}else{
+el.value = data[el.id];
+}
+
+});
+
+calc();
+
+}
+
+// 🔹 削除
+function clearData(){
+
+localStorage.removeItem("orderData");
+
+fields.forEach(el=>{
+
+if(el.type === "checkbox"){
+el.checked = false;
+}else{
+el.value = "";
+}
+
+});
+
+calc();
+
+}
+
+// 🔹 入力変更
+fields.forEach(el=>{
+el.addEventListener("change",calc);
+el.addEventListener("input",saveProgress);
+});
+
+// 🔹 ページ読み込み
+window.addEventListener("DOMContentLoaded",loadProgress);
+
 
 
 </script>
