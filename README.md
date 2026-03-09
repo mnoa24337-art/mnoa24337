@@ -202,7 +202,7 @@ selects.forEach(sel => {
 // 🔹 保存対象全部取得
 const fields = document.querySelectorAll("input, select");
 
-const result = document.getElementById("out");
+
 
 // 🔹 合計計算
 function calc(){
