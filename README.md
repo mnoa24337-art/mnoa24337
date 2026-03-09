@@ -278,22 +278,20 @@ calc();
 // 🔹 削除
 function clearData(){
 
-localStorage.removeItem("orderData");
+  localStorage.removeItem("orderData");
 
-fields.forEach(el=>{
+  fields.forEach(el => {
 
-if(el.type === "checkbox"){
-el.checked = false;
-}else{
-el.value = "";
+    if (el.tagName === "SELECT") {
+      el.value = "0";
+    }
 
-}
+  });
 
-});
-
-calc();
+  calc();
 
 }
+
 
 // 🔹 入力変更
 fields.forEach(el=>{
