@@ -85,7 +85,7 @@
         </select> 
         個
         <br><br>カクテキキムチ（５００円）<br> 
-        <select name="Kakuteki" id="kakuteki"> 
+        <select name="kakuteki" id="kakuteki"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option> 
           <option value="2">2</option> 
@@ -102,10 +102,11 @@
         個
 合計：<span id="out">0</span> 円
         <br><br>お名前（カナ　フルネーム）<br> 
-        <input type="text" 
-       pattern="^[ァ-ヶー]+$" 
-       title="カタカナで入力してください"
-       required>
+        <input type="text"
+id="name"
+pattern="^[ァ-ヶー]+$"
+title="カタカナで入力してください"
+required>
            
 <br><br>
         メールアドレス<br> 
@@ -113,7 +114,8 @@
        
 <br><br>
 
-<button onclick="clearData()">保存データ削除</button>
+<button type="button" onclick="clearData()">保存データ削除</button>
+
  <br><br> 
     <div class="policy">
 　プライバシーポリシー 
@@ -125,7 +127,8 @@
 　<br><br>お客様の個人情報は、法令に基づく場合を除き、事前の同意なく第三者へ提供することはありません。 
 また、個人情報は利用目的が達成され次第、適切な方法で管理・削除いたします。 
    </div>
-  </div><br><input type="checkbox" name="agree">
+  </div><br><input type="checkbox" id="agree" name="agree">
+
     同意する
         <br><input type="submit" value="送信"> 
   </form> 
@@ -282,7 +285,8 @@ fields.forEach(el=>{
 if(el.type === "checkbox"){
 el.checked = false;
 }else{
-el.value = "";
+el.value = "0";
+
 }
 
 });
@@ -300,6 +304,7 @@ el.addEventListener("input",saveProgress);
 // 🔹 ページ読み込み
 window.addEventListener("DOMContentLoaded",loadProgress);
 
+calc();
 
 
 </script>
