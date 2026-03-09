@@ -285,7 +285,7 @@ fields.forEach(el=>{
 if(el.type === "checkbox"){
 el.checked = false;
 }else{
-el.value = "0";
+el.value = "";
 
 }
 
