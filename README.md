@@ -231,9 +231,9 @@ function loadForm() {
     }
   });
 }
-form.addEventListener("input", saveForm);
-form.addEventListener("change", saveForm);
-window.addEventListener("DOMContentLoaded", loadForm);
+form.addEventListener("input" , saveForm);
+form.addEventListener("change" , saveForm);
+window.addEventListener("DOMContentLoaded" , loadForm);
 
 
 </script>
