@@ -100,7 +100,7 @@
           <option value="3">3</option> 
         </select>  
         個
-合計：<span id="out">0</span> 円
+<br>合計：<span id="out">0</span> 円
         <br><br>お名前（カナ　フルネーム）<br> 
         <input type="text"
 id="name"
