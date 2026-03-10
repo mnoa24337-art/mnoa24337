@@ -202,12 +202,9 @@ selects.forEach(sel => {
   sel.addEventListener("change", calc);
 });
 
-// 🔹 保存対象全部取得
 const fields = document.querySelectorAll("input, select");
 
 
-
-// 🔹 合計計算
 function calc(){
 
 let total = 0;
@@ -228,7 +225,6 @@ saveProgress();
 
 }
 
-// 🔹 保存
 function saveProgress(){
 
 const data = {};
@@ -249,7 +245,6 @@ localStorage.setItem("orderData",JSON.stringify(data));
 
 }
 
-// 🔹 復元
 function loadProgress(){
 
 const saved = localStorage.getItem("orderData");
@@ -275,7 +270,6 @@ calc();
 
 }
 
-// 🔹 削除
 function clearData(){
 
   localStorage.removeItem("orderData");
@@ -296,18 +290,16 @@ function clearData(){
 
 }
 
-
-
-// 🔹 入力変更
 fields.forEach(el=>{
 el.addEventListener("change",calc);
 el.addEventListener("input",saveProgress);
 });
+window.addEventListener("DOMContentLoaded", () => {
 
-// 🔹 ページ読み込み
-window.addEventListener("DOMContentLoaded",loadProgress);
+  loadProgress();
+  calc();
 
-calc();
+});
 
 
 </script>
