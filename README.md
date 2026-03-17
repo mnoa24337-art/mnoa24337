@@ -46,7 +46,7 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>いちじくジャム（４５０円）<br>  
+        <br><br>いちじくジャム（４５０）
         <select name="FigJam" id="FigJam"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option>
