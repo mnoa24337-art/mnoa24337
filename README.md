@@ -38,7 +38,6 @@
         個
         <br> <br>いちごジャム（４５０円）
            <br>
-           <br> 
          <select name="StrawberryJam" id="StrawberryJam"> 
           <option value="0" selected>0</option>
           <option value="1">1</option> 
@@ -46,8 +45,7 @@
           <option value="3">3</option> 
         </select>  
         個
-        <br><br>いちじくジャム（４５０）
-           <br>
+        <br><br>いちじくジャム（４５０円）
            <br>
         <select name="FigJam" id="FigJam"> 
           <option value="0" selected>0</option> 
