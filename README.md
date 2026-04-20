@@ -285,7 +285,9 @@ function clearData(){
     if (el.type === "text" || el.type === "email") {
       el.value = "";
     }
-
+    if (el.tagName === "INPUT" && el.type === "checkbox") {
+  el.checked = false;
+}
   });
 
   calc();
