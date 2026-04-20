@@ -47,6 +47,8 @@
         </select>  
         個
         <br><br>いちじくジャム（４５０）
+           <br>
+           <br>
         <select name="FigJam" id="FigJam"> 
           <option value="0" selected>0</option> 
           <option value="1">1</option>
