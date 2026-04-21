@@ -106,16 +106,16 @@
        <br><br> お名前<br>
 
 <div class="name-row">
-  セイ<br>
+  セイ
   <input type="text"
     style="width:120px;"
     id="name"
     placeholder="マツノウ"
     pattern="^[ァ-ヶー]+$"
     title="カタカナで入力してください"
-    required>
+    required> <br>
 
- メイ <br>
+ メイ
  <input type="text"
     id="firstname"
     style="width:120px;"
