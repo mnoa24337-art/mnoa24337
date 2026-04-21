@@ -107,7 +107,7 @@
 
 <div class="name-row">
   セイ<input type="text"
-    size="10"
+    style="width:120px;"
     id="name"
     placeholder="マツノウ"
     pattern="^[ァ-ヶー]+$"
@@ -116,7 +116,7 @@
 
  メイ <input type="text"
     id="firstname"
-    size="10"
+    style="width:120px;"
     placeholder="タロウ"
     pattern="^[ァ-ヶー]+$"
     title="カタカナで入力してください"
