@@ -19,7 +19,19 @@ select{
 .policy{font-size : 20px;
      }
 
+<style>
 .name-row {
   display: flex;
-  gap: 10px; /* 間隔 */
+  gap: 20px;
 }
+
+.field {
+  display: flex;
+  flex-direction: column; /* 上にラベル、下に入力 */
+}
+
+.field input {
+  width: 120px;
+  padding: 5px;
+}
+</style>
