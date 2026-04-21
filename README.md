@@ -106,7 +106,8 @@
        <br><br> お名前<br>
 
 <div class="name-row">
-  セイ<input type="text"
+  セイ<br>
+  <input type="text"
     style="width:120px;"
     id="name"
     placeholder="マツノウ"
@@ -114,7 +115,8 @@
     title="カタカナで入力してください"
     required>
 
- メイ <input type="text"
+ メイ <br>
+ <input type="text"
     id="firstname"
     style="width:120px;"
     placeholder="タロウ"
