@@ -109,6 +109,16 @@ id="name"
 pattern="^[ァ-ヶー]+$"
 title="カタカナで入力してください"
 required>
+<br>合計：<span id="out">0</span> 円
+        <br><br>お名前（カナ　フルネーム）<br> 
+        <input type="text"
+id="firstname"
+pattern="^[ァ-ヶー]+$"
+title="カタカナで入力してください"
+required>
+           
+<br>合計：<span id="out">0</span> 円
+        
            
 <br><br>
         メールアドレス<br> 
@@ -120,7 +130,7 @@ required>
 
  <br><br> 
     <div class="policy">
-　プライバシーポリシー 
+　プライバシーポリシー <br>
 　当サービスでは、商品のお渡しおよび関連する連絡を行うため、
   <br>お客様の氏名（フルネーム）およびメールアドレスを取得します。 
   <br>取得した個人情報は、以下の目的でのみ利用いたします。 
@@ -137,6 +147,27 @@ required>
      </div>
  
   <script>
+const form = document.getElementById("orderForm");
+const msg = document.getElementById("message");
+
+function checkSubmitted() {
+  if (localStorage.getItem("ordered")) {
+    form.style.display = "none";
+    msg.textContent = "すでに注文済みです";
+  }
+}
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+
+  localStorage.setItem("ordered", "true");
+
+  form.style.display = "none";
+  msg.textContent = "注文が完了しました";
+});
+
+window.addEventListener("DOMContentLoaded", checkSubmitted);
   
 const ids = [
 "StrawberryJam",
