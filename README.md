@@ -103,18 +103,24 @@
         </select>  
         個
 <br>合計：<span id="out">0</span> 円
-        <br><br>お名前<br>セイ メイ<br> 
-        <input type="text"
-id="name"
-pattern="^[ァ-ヶー]+$"
-title="カタカナで入力してください"
-required>
+       <br><br> <お名前<br>
+セイ メイ<br>
 
- <input type="text"
-id="firstname"
-pattern="^[ァ-ヶー]+$"
-title="カタカナで入力してください"
-required>
+<div class="name-row">
+  <input type="text"
+    id="name"
+    placeholder="セイ"
+    pattern="^[ァ-ヶー]+$"
+    title="カタカナで入力してください"
+    required>
+
+  <input type="text"
+    id="firstname"
+    placeholder="メイ"
+    pattern="^[ァ-ヶー]+$"
+    title="カタカナで入力してください"
+    required>
+</div>
            
 <br>合計：<span id="out">0</span> 円
         
