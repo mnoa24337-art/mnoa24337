@@ -103,15 +103,14 @@
         </select>  
         個
 <br>合計：<span id="out">0</span> 円
-        <br><br>お名前（カナ　フルネーム）<br> 
+        <br><br>お名前<br>セイ メイ<br> 
         <input type="text"
 id="name"
 pattern="^[ァ-ヶー]+$"
 title="カタカナで入力してください"
 required>
-<br>合計：<span id="out">0</span> 円
-        <br><br>お名前（カナ　フルネーム）<br> 
-        <input type="text"
+
+ <input type="text"
 id="firstname"
 pattern="^[ァ-ヶー]+$"
 title="カタカナで入力してください"
