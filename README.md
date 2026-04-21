@@ -113,7 +113,7 @@
     placeholder="マツノウ"
     pattern="^[ァ-ヶー]+$"
     title="カタカナで入力してください"
-    required> <br>
+    required> 
 
  メイ
  <input type="text"
