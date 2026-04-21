@@ -124,8 +124,6 @@
     title="カタカナで入力してください"
     required>
 </div>
-           
-<br>合計：<span id="out">0</span> 円
         
            
 <br><br>
