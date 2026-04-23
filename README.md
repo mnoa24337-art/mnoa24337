@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>  
-    <table id="table"></table>
+    
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
       <form id="myForm">
@@ -157,26 +157,27 @@
      </div>
  
   <script>
-const form = document.getElementById("orderForm");
+const form = document.getElementById("myForm");
 const msg = document.getElementById("message");
 
 function checkSubmitted() {
   if (localStorage.getItem("ordered")) {
-    form.style.display = "none";
+    form.querySelectorAll("input, select").forEach(el => el.disabled = true);
     msg.textContent = "すでに注文済みです";
   }
 }
 
+// ページ読み込み時にチェック
+checkSubmitted();
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
-
   localStorage.setItem("ordered", "true");
 
-  form.style.display = "none";
+  checkSubmitted(); // ここで呼ぶだけでOK
   msg.textContent = "注文が完了しました";
 });
-
 window.addEventListener("DOMContentLoaded", checkSubmitted);
   
 const ids = [
@@ -213,19 +214,6 @@ const prices = {
   RadishSpicySoySauce: 350
 };
 
-function calc() {
-  let total = 0;
-
-  selects.forEach(sel => {
-    const price = prices[sel.id] || 0;
-    const qty = Number(sel.value) || 0;
-    total += price * qty;
-  });
-
-  result.textContent = total;
-}
-
-const fields = document.querySelectorAll("input, select");
 
 function calc() {
 
@@ -269,7 +257,7 @@ function saveProgress() {
 // 🔥 復元
 function loadProgress() {
 
-  const saved = localStorage.getItem("orderData");
+  const saved = localStorage.getItem("myForm");
   if (!saved) return;
 
   const data = JSON.parse(saved);
