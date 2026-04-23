@@ -152,7 +152,7 @@
   </div><br><input type="checkbox" id="agree" name="agree" required>
 
     同意する
-        <br><input type="submit" value="送信"> 
+        <br><<button type="submit">注文する</button> 
   </form> 
   <p id="message"></p>
      </div>
