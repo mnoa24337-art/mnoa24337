@@ -115,9 +115,7 @@
       placeholder="マツノウ"
       pattern="^[ァ-ヶー]+$"
       required>
-  </div>
-
-  <div class="field">
+    
     <span>メイ</span>
     <input type="text"
       style="width:80px;"
