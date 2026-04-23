@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>  
-    
+    か
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
       <form id="myForm">
