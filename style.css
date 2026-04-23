@@ -19,7 +19,7 @@ select{
 .policy{font-size : 20px;
      }
 
-<style>
+
 .name-row {
   display: flex;
   gap: 20px;
@@ -30,8 +30,7 @@ select{
   flex-direction: column; /* 上にラベル、下に入力 */
 }
 
-.field input {
+.field {
   width: 50px;
   padding: 5px;
 }
-</style>
