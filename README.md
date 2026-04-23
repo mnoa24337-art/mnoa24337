@@ -223,111 +223,106 @@ function calc() {
   result.textContent = total;
 }
 
-selects.forEach(sel => {
-  sel.addEventListener("change", calc);
-});
-
 const fields = document.querySelectorAll("input, select");
 
+function calc() {
 
-function calc(){
+  let total = 0;
 
-let total = 0;
+  Object.keys(prices).forEach(id => {
 
-Object.keys(prices).forEach(id=>{
+    const el = document.getElementById(id);
+    if (!el) return;
 
-const el = document.getElementById(id);
-if(!el) return;
+    const qty = Number(el.value) || 0;
+    total += prices[id] * qty;
 
-const qty = Number(el.value) || 0;
-total += prices[id] * qty;
+  });
 
-});
-
-result.textContent = total.toLocaleString();
-
-saveProgress();
+  result.textContent = total.toLocaleString();
 
 }
 
-function saveProgress(){
+// 🔥 保存
+function saveProgress() {
 
-const data = {};
+  const data = {};
 
-fields.forEach(el=>{
+  fields.forEach(el => {
 
-if(!el.id) return;
+    if (!el.id) return;
 
-if(el.type === "checkbox"){
-data[el.id] = el.checked;
-}else{
-data[el.id] = el.value;
-}
+    if (el.type === "checkbox") {
+      data[el.id] = el.checked;
+    } else {
+      data[el.id] = el.value;
+    }
 
-});
+  });
 
-localStorage.setItem("orderData",JSON.stringify(data));
-
-}
-
-function loadProgress(){
-
-const saved = localStorage.getItem("orderData");
-if(!saved) return;
-
-const data = JSON.parse(saved);
-
-fields.forEach(el=>{
-
-if(!el.id) return;
-
-if(data[el.id] === undefined) return;
-
-if(el.type === "checkbox"){
-el.checked = data[el.id];
-}else{
-el.value = data[el.id];
-}
-
-});
-
-calc();
+  localStorage.setItem("orderData", JSON.stringify(data));
 
 }
 
-function clearData(){
+// 🔥 復元
+function loadProgress() {
+
+  const saved = localStorage.getItem("orderData");
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+
+  fields.forEach(el => {
+
+    if (!el.id) return;
+    if (data[el.id] === undefined) return;
+
+    if (el.type === "checkbox") {
+      el.checked = data[el.id];
+    } else {
+      el.value = data[el.id];
+    }
+
+  });
+
+}
+
+// 🔥 リセット
+function clearData() {
 
   localStorage.removeItem("orderData");
 
   fields.forEach(el => {
 
-    if (el.tagName === "SELECT") {
+    if (el.type === "checkbox") {
+      el.checked = false;
+    } else if (el.tagName === "SELECT") {
       el.value = "0";
-    }
-
-    if (el.type === "text" || el.type === "email") {
+    } else {
       el.value = "";
     }
-    if (el.tagName === "INPUT" && el.type === "checkbox") {
-  el.checked = false;
-}
+
   });
 
   calc();
 
 }
 
-fields.forEach(el=>{
-el.addEventListener("change",calc);
-el.addEventListener("input",saveProgress);
-});
-window.addEventListener("DOMContentLoaded", () => {
+// 🔥 イベント（1回でOK）
+fields.forEach(el => {
+  el.addEventListener("change", () => {
+    calc();
+    saveProgress();
+  });
 
+  el.addEventListener("input", saveProgress);
+});
+
+// 🔥 初期読み込み
+window.addEventListener("DOMContentLoaded", () => {
   loadProgress();
   calc();
-
 });
-
 
 </script>
 
