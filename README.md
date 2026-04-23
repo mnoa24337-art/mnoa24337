@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>  
-    
+
+<input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+  
   <div class="all">
     <h1 id="subtitle">商品購入フォーム</h1>
       <form id="myForm">
