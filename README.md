@@ -245,7 +245,7 @@ function checkSubmitted() {
 // ===== リセット =====
 function clearData() {
   localStorage.removeItem("orderData");
-  localStorage.removeItem("ordered");
+  localStorage.removeItem("");
 
   fields.forEach(el => {
     if (el.type === "checkbox") {
