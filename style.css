@@ -30,6 +30,6 @@ select{
   flex-direction: column; /* 上にラベル、下に入力 */
 
 }
-.row-name{
+#row-name{
      width: 150px;
 }
