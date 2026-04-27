@@ -28,9 +28,6 @@ select{
 .field {
   display: flex;
   flex-direction: column; /* 上にラベル、下に入力 */
-}
-
-.field {
-  width: 50px;
+　 width: 150px;
   padding: 5px;
 }
